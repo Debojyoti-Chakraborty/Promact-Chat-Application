@@ -1,0 +1,40 @@
+    <div class="row" style="margin:0;">
+        <div class="col-md-2">
+            <div class="side-nav">
+                <div class="logo">
+                    <h3>Available Users</h3>
+                </div>
+                <ul class="nav-link">
+                    <li *ngFor="let user of users"><a  (click)="getMessages(user)">{{user.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-10 ">
+            <div class="content-side">
+                <div class="header">
+                    <h1>{{toUser.name}}</h1>
+                </div>
+                <div class="main-content">
+                    <div class="layout-msg">
+                        <div *ngFor="let message of messages" class="msg-block">
+                            <h5>{{message.fromUserid}}</h5>
+                            <p>{{message.message}}</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div>
+                        <div class="send-msg-block">
+                            <div class="input-group">
+                                <input type="text" [(ngModel)]="text" class="form-control" placeholder="Message here... ">
+                                <span class="input-group-btn">
+                                    <button (click)="sendMessage()" class="btn btn-default" type="button">Send</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
